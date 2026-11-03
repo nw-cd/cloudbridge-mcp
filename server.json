@@ -1,0 +1,37 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ru.cloud-bridge/cloudbridge",
+  "title": "CloudBridge",
+  "description": "Transfer and sync files between 19 cloud storages (Yandex, Google, VK, Telegram, S3)",
+  "version": "1.0.0",
+  "websiteUrl": "https://cloud-bridge.ru/mcp",
+  "icons": [
+    {
+      "src": "https://cloud-bridge.ru/icon.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://cloud-bridge.ru/api/mcp",
+      "headers": [
+        {
+          "name": "X-API-Key",
+          "description": "CloudBridge API key (cb_live_...) — created in dashboard → API",
+          "value": "{cloudbridge_api_key}",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ],
+      "variables": {
+        "cloudbridge_api_key": {
+          "description": "CloudBridge API key (cb_live_...)",
+          "format": "string",
+          "isRequired": true,
+          "isSecret": true
+        }
+      }
+    }
+  ]
+}
