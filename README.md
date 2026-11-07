@@ -29,10 +29,17 @@ FTP/FTPS, Google Photos, Kinescope.
 ## Tools
 
 **Read:** `list_clouds`, `list_files`, `list_transfers`, `get_transfer`,
-`get_usage`, `list_share_links`, `get_download_url`, `read_text_file`
+`get_usage`, `list_share_links`, `get_download_url`, `read_text_file`,
+`list_dedup_scans`, `get_dedup_scan`, `list_scheduled_syncs`
 
 **Mutating (30/hour cap):** `create_transfer`, `remote_upload`,
-`create_share_link`, `cancel_transfer`, `revoke_share_link`
+`create_share_link`, `cancel_transfer`, `revoke_share_link`,
+`start_dedup_scan`, `execute_dedup`, `cancel_dedup_scan`,
+`create_scheduled_sync`, `update_scheduled_sync`, `delete_scheduled_sync`,
+`run_scheduled_sync`, `move_file`, `create_folder`, `delete_file`
+
+`execute_dedup` only accepts `trash`/`quarantine` — one copy per group is
+always kept, permanent deletion stays in the web UI.
 
 Introspection (`initialize`, `ping`, `tools/list`) answers without a key —
 `tools/call` is key-gated.
