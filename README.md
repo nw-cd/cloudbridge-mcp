@@ -1,5 +1,7 @@
 # CloudBridge MCP Server
 
+[![ToolSDK MCP Registry](https://badges.toolsdk.ai/badge/@toolsdk-remote/cloudbridge-mcp)](https://toolsdk-ai.github.io/toolsdk-mcp-registry/#%40toolsdk-remote%2Fcloudbridge-mcp)
+
 Hosted MCP server for [CloudBridge](https://cloud-bridge.ru) — a SaaS that
 transfers and syncs files between 19 cloud storages: Yandex Disk, Google
 Drive, VK Cloud (Mail.ru), Dropbox, OneDrive, Telegram channels, MEGA,
