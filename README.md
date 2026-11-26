@@ -12,8 +12,10 @@ FTP/FTPS, Google Photos, Kinescope.
   JSON-RPC over POST)
 - **Registry:** [`ru.cloud-bridge/cloudbridge`](https://registry.modelcontextprotocol.io)
 - **Docs:** https://cloud-bridge.ru/mcp
-- **Auth:** `X-API-Key: cb_live_…` header — create a key in your
-  CloudBridge dashboard → API (requires the API-access add-on)
+- **Auth:** `X-API-Key: cb_live_…` header — no account yet? Ask your
+  agent to call `signup` → `verify_signup` and it will mint a key with a
+  3-day free trial, entirely inside the client. Existing users create a
+  key in the dashboard → API (API-access add-on).
 
 ## Client config
 
@@ -30,6 +32,11 @@ FTP/FTPS, Google Photos, Kinescope.
 
 ## Tools
 
+**Onboarding & billing (no active subscription needed):** `signup`,
+`verify_signup`, `get_billing_status`, `create_payment_link` — a
+catalog-discovered user can register, receive a key with a 3-day trial,
+and get a hosted checkout URL without ever leaving the client.
+
 **Read:** `list_clouds`, `list_files`, `list_transfers`, `get_transfer`,
 `get_usage`, `list_share_links`, `get_download_url`, `read_text_file`,
 `list_dedup_scans`, `get_dedup_scan`, `list_scheduled_syncs`
@@ -43,5 +50,8 @@ FTP/FTPS, Google Photos, Kinescope.
 `execute_dedup` only accepts `trash`/`quarantine` — one copy per group is
 always kept, permanent deletion stays in the web UI.
 
-Introspection (`initialize`, `ping`, `tools/list`) answers without a key —
-`tools/call` is key-gated.
+Introspection (`initialize`, `ping`, `tools/list`) and the onboarding
+tools answer without a key. `tools/call` is key-gated per tool: on a
+lapsed add-on the billing tools stay reachable so the user can renew
+in-place — everything else returns a paywall error pointing at
+`create_payment_link`.
